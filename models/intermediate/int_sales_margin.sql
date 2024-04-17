@@ -4,7 +4,7 @@ SELECT
     ,orders_id
     ,revenue
     ,quantity
-    , CAST(purchase_price AS float64) AS purchase_price
+    , CAST(purchase_price AS float64) AS purchase_cost
     , ROUND((revenue - CAST(purchase_price AS float64)),2) AS margin
 FROM {{ ref("stg_raw__sales") }} AS sales
 LEFT JOIN {{ ref("stg_raw__product") }} AS product
